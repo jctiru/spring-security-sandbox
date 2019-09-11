@@ -9,37 +9,56 @@
 <html>
 
 <head>
-<style>
-.failed {
-	color: red;
-}
-</style>
+<meta
+	name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link
+	rel="stylesheet"
+	href="https://bootswatch.com/4/sandstone/bootstrap.min.css">
 <title>Log-in Page</title>
 </head>
 
 <body>
-	<h3>Login Page</h3>
-	<form:form
-		action="${pageContext.request.contextPath}/authenticate-login"
-		method="POST">
-		<%-- Check for login error --%>
-		<c:if test="${param.error != null }">
-			<i class="failed">Invalid username/password</i>
-		</c:if>
-		<p>
-			User name: <input
-				type="text"
-				name="username" />
-		</p>
-		<p>
-			Password: <input
-				type="password"
-				name="password" />
-		</p>
-		<input
-			type="submit"
-			value="Login" />
-	</form:form>
+	<div class="container my-5">
+		<div class="row">
+			<div class="col-md-6 mx-auto">
+				<div class="card border-secondary card-body bg-light mt-5 mb-5">
+					<h2>Login</h2>
+					<p>Please fill in your credentials to log in</p>
+					<form:form
+						action="${pageContext.request.contextPath}/authenticate-login"
+						method="POST">
+						<%-- Check for login error --%>
+						<c:if test="${param.error != null }">
+							<div class="alert alert-danger">
+								<strong>Invalid username/password</strong>
+							</div>
+						</c:if>
+						<div class="form-group">
+							<label for="email">Username: </label> <input
+								class="form-control"
+								type="text"
+								name="username" />
+						</div>
+						<div class="form-group">
+							<label for="password">Password: </label><input
+								class="form-control"
+								type="password"
+								name="password" />
+						</div>
+						<div class="row">
+							<div class="col-10 mx-auto">
+								<input
+									class="btn btn-primary btn-block"
+									type="submit"
+									value="Login" />
+							</div>
+						</div>
+					</form:form>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 
 </html>
