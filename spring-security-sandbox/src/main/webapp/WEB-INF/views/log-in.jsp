@@ -34,6 +34,12 @@
 								<strong>Invalid username/password</strong>
 							</div>
 						</c:if>
+						<%-- Check for logout --%>
+						<c:if test="${param.logout != null }">
+							<div class="alert alert-info">
+								<strong>You have been logged out</strong>
+							</div>
+						</c:if>
 						<div class="form-group">
 							<label for="email">Username: </label> <input
 								class="form-control"
