@@ -16,9 +16,19 @@
 	<h1>Welcome to company home page!</h1>
 	<hr>
 	<p>
-		User: <security:authentication property="principal.username"/>
-		<br>
-		Role(s): <security:authentication property="principal.authorities"/>
+		User:
+		<security:authentication property="principal.username" />
+		<br> Role(s):
+		<security:authentication property="principal.authorities" />
+	</p>
+	<hr>
+	<p>
+		<a href="${pageContext.request.contextPath}/leaders">Leadership
+			Meeting</a>
+	</p>
+	<p>
+		<a href="${pageContext.request.contextPath}/systems">IT Systems
+			Meeting</a>
 	</p>
 	<form:form
 		action="${pageContext.request.contextPath}/logout"
