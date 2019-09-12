@@ -28,14 +28,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //				.anyRequest().authenticated()
 				.antMatchers("/").hasRole("EMPLOYEE")
 				.antMatchers("/leaders/**").hasRole("MANAGER")
-				.antMatchers("/systems/**").hasRole("EMPLOYEE")
+				.antMatchers("/systems/**").hasRole("ADMIN")
 				.and()
 				.formLogin()
 				.loginPage("/loginpage")
 				.loginProcessingUrl("/authenticate-login")
 				.permitAll()
 				.and()
-				.logout().permitAll();
+				.logout().permitAll()
+				.and()
+				.exceptionHandling().accessDeniedPage("/access-denied");
 	}
 
 }
