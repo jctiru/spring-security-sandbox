@@ -22,14 +22,18 @@
 		<security:authentication property="principal.authorities" />
 	</p>
 	<hr>
-	<p>
-		<a href="${pageContext.request.contextPath}/leaders">Leadership
-			Meeting</a>
-	</p>
-	<p>
-		<a href="${pageContext.request.contextPath}/systems">IT Systems
-			Meeting</a>
-	</p>
+	<security:authorize access="hasRole('MANAGER')">
+		<p>
+			<a href="${pageContext.request.contextPath}/leaders">Leadership
+				Meeting</a>
+		</p>
+	</security:authorize>
+	<security:authorize access="hasRole('ADMIN')">
+		<p>
+			<a href="${pageContext.request.contextPath}/systems">IT Systems
+				Meeting</a>
+		</p>
+	</security:authorize>
 	<form:form
 		action="${pageContext.request.contextPath}/logout"
 		method="POST">
