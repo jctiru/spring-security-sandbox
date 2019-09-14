@@ -60,6 +60,14 @@
 									value="Login" />
 							</div>
 						</div>
+						<div class="row pt-3">
+							<div class="col-10 mx-auto">
+								<a
+									href="${pageContext.request.contextPath}/register/show-form"
+									class="btn btn-info btn-block"
+									role="button">Register</a>
+							</div>
+						</div>
 					</form:form>
 				</div>
 			</div>
