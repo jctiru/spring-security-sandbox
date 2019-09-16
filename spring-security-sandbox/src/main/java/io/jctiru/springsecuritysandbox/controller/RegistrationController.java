@@ -44,22 +44,20 @@ public class RegistrationController {
 
 		// Form validation
 		if (bindingResult.hasErrors()) {
-			System.out.println(bindingResult.getAllErrors());
 			return "registration-form";
 		}
 
 		// Check the database if user already exists
 		User existingUser = userService.findByUserName(userName);
 		if (existingUser != null) {
-			model.addAttribute("crmUser", new CrmUser());
 			model.addAttribute("registrationError", "User name already exists.");
 			logger.warning("User name already exists.");
-			
+
 			return "registration-form";
 		}
-		
+
 		// Create user account
-		// userService.save(crmUser);
+		userService.save(crmUser);
 
 		logger.info("Successfully created user: " + userName);
 
