@@ -2,8 +2,10 @@ package io.jctiru.springsecuritysandbox.service;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User.UserBuilder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -61,7 +63,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		UserBuilder builder = org.springframework.security.core.userdetails.User.builder();
 		builder.username(user.getUserName());
 		builder.password(user.getPassword());
-		builder.roles(user.getRoles().stream().map(role -> role.getName()).toArray(String[]::new));
+		builder.authorities(user.getRoles().stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList()));
 
 		return builder.build();
 	}
