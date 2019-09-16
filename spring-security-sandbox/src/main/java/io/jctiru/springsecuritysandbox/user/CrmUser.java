@@ -12,28 +12,22 @@ import io.jctiru.springsecuritysandbox.validation.FieldMatch;
 public class CrmUser {
 
 	@NotBlank(message = "is required")
-	@Size(min = 1, message = "is required")
 	private String userName;
 
 	@NotBlank(message = "is required")
-	@Size(min = 1, message = "is required")
 	private String password;
 
 	@NotBlank(message = "is required")
-	@Size(min = 1, message = "is required")
 	private String matchingPassword;
 
 	@NotBlank(message = "is required")
-	@Size(min = 1, message = "is required")
 	private String firstName;
 
 	@NotBlank(message = "is required")
-	@Size(min = 1, message = "is required")
 	private String lastName;
 
 	@Email
 	@NotBlank(message = "is required")
-	@Size(min = 1, message = "is required")
 	private String email;
 
 	public String getUserName() {
